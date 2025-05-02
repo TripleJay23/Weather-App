@@ -19,6 +19,7 @@ body {
     border: 1px solid #bdbdbd;
     border-radius: 4px;
     margin-right: 8px;
+    outline-style: none;
 }
 #weatherForm button {
     padding: 8px 16px;
@@ -31,4 +32,28 @@ body {
 #weatherResult {
     margin-top: 20px;
     font-size: 1.1em;
+    border: 1px solid #bdbdbd;
+    border-radius: 10px;
+}
+
+.city{
+    font-size: 30px;
+    font-family: verdana;
+}
+
+.temp{
+    font-size: 37px;
+    font-weight: lighter;
+    margin-top: -5px;
+    font-style: oblique;
+}
+
+.humid{
+    font-size: 25px;
+    margin: -25px 0 21px;
+}
+
+.emoji{
+    font-size: 75px;
+    margin: -18px 0 5px;
 }
