@@ -136,7 +136,7 @@ body {
     100% { opacity: 1; transform: scale(1); }
 }
 
-/* --- Animated Clouds Example --- */
+/* --- Animated Clouds --- */
 .weather-bg-clouds {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
@@ -155,7 +155,7 @@ body {
     border-radius: 100px;
     opacity: 0.5;
     filter: blur(2px);
-    animation: cloudMove 20s linear infinite; /* Faster: was 60s */
+    animation: cloudMove 20s linear infinite; 
 }
 
 .cloud:nth-child(2) {
@@ -164,7 +164,7 @@ body {
     width: 320px;
     height: 100px;
     opacity: 0.35;
-    animation-duration: 50s; /* Faster: was 90s */
+    animation-duration: 50s; 
 }
 
 .cloud:nth-child(3) {
@@ -173,7 +173,7 @@ body {
     width: 380px;
     height: 90px;
     opacity: 0.4;
-    animation-duration: 40s; /* Add more clouds if needed */
+    animation-duration: 40s; 
 }
 
 .cloud:nth-child(4) {
