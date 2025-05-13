@@ -1,59 +1,200 @@
+body::-webkit-scrollbar {
+  display: none;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: #e0e7ff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 100%);
+    min-height: 100vh;
     margin: 0;
     padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .weather-app {
-    background: #fff;
+    background: rgba(255,255,255,0.95);
     max-width: 400px;
     margin: 60px auto;
-    padding: 30px 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 36px 28px 32px 28px;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(99,102,241,0.18), 0 1.5px 6px rgba(0,0,0,0.08);
     text-align: center;
+    transition: box-shadow 0.3s;
 }
+
+.weather-app:hover {
+    box-shadow: 0 12px 40px rgba(99,102,241,0.22), 0 2px 8px rgba(0,0,0,0.10);
+}
+
+#weatherForm{
+    display: flex;
+    height: 40px;
+}
+
 #weatherForm input {
-    padding: 8px;
+    padding: 10px 12px;
     width: 60%;
-    border: 1px solid #bdbdbd;
-    border-radius: 4px;
-    margin-right: 8px;
-    outline-style: none;
+    border: 1.5px solid #c7d2fe;
+    border-radius: 6px;
+    margin-right: 10px;
+    outline: none;
+    font-size: 1em;
+    background: #f1f5ff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    text-transform: capitalize;
 }
+
+#weatherForm input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px #a5b4fc55;
+}
+
 #weatherForm button {
-    padding: 8px 16px;
-    background: #6366f1;
+    padding: 10px 6px;
+    display: inline-block;
+    background: linear-gradient(90deg, #6366f1 60%, #818cf8 100%);
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
+    font-size: .8em;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.10);
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    outline: none;
 }
+
+#weatherForm button:hover, #weatherForm button:focus {
+    background: linear-gradient(90deg, #818cf8 60%, #6366f1 100%);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 16px rgba(99,102,241,0.18);
+}
+
 #weatherResult {
-    margin-top: 20px;
+    margin-top: 28px;
     font-size: 1.1em;
-    border: 1px solid #bdbdbd;
-    border-radius: 10px;
+    border: none;
+    border-radius: 14px;
+    background: rgba(99,102,241,0.07);
+    box-shadow: 0 2px 8px rgba(99,102,241,0.07);
+    padding: 22px 0 18px 0;
+    min-height: 120px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.7s cubic-bezier(.23,1.01,.32,1) forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .city{
-    font-size: 30px;
-    font-family: verdana;
+    font-size: 2rem;
+    font-family: 'Segoe UI Semibold', Verdana, Arial, sans-serif;
+    margin-bottom: 6px;
+    color: #3730a3;
+    letter-spacing: 0.5px;
+    animation: fadeIn 0.7s 0.1s both;
 }
 
 .temp{
-    font-size: 37px;
-    font-weight: lighter;
-    margin-top: -5px;
+    font-size: 2.3rem;
+    font-weight: 400;
+    margin-top: -2px;
     font-style: oblique;
+    color: #4f46e5;
+    animation: fadeIn 0.7s 0.2s both;
 }
 
 .humid{
-    font-size: 25px;
-    margin: -25px 0 21px;
+    font-size: 1.2rem;
+    margin: -18px 0 18px;
+    color: #6366f1;
+    animation: fadeIn 0.7s 0.3s both;
 }
 
 .emoji{
-    font-size: 75px;
-    margin: -18px 0 5px;
+    font-size: 4.2rem;
+    margin: -10px 0 0px;
+    filter: drop-shadow(0 2px 8px #818cf855);
+    animation: popIn 0.5s 0.4s both;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.7); }
+    80% { opacity: 1; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* --- Animated Clouds Example --- */
+.weather-bg-clouds {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -10000;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.cloud {
+    position: absolute;
+    top: 6.5%;
+    left: -200px;
+    width: 220px;
+    height: 80px;
+    background: #fff;
+    border-radius: 100px;
+    opacity: 0.5;
+    filter: blur(2px);
+    animation: cloudMove 20s linear infinite; /* Faster: was 60s */
+}
+
+.cloud:nth-child(2) {
+    top: 25%;
+    left: -300px;
+    width: 320px;
+    height: 100px;
+    opacity: 0.35;
+    animation-duration: 50s; /* Faster: was 90s */
+}
+
+.cloud:nth-child(3) {
+    top: 50%;
+    left: -250px;
+    width: 380px;
+    height: 90px;
+    opacity: 0.4;
+    animation-duration: 40s; /* Add more clouds if needed */
+}
+
+.cloud:nth-child(4) {
+    top: 70%;
+    left: -350px;
+    width: 260px;
+    height: 90px;
+    opacity: 0.3;
+    animation-duration: 27s;
+}
+
+.cloud:nth-child(5) {
+    top: 90%;
+    left: -180px;
+    width: 140px;
+    height: 50px;
+    opacity: 0.25;
+    animation-duration: 10s;
+}
+
+@keyframes cloudMove {
+    0% { left: -300px; }
+    100% { left: 110vw; }
 }
