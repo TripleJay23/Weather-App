@@ -1,0 +1,20 @@
+{
+    "recommendations": [
+        "foxundermoon.shell-format",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "christian-kohler.npm-intellisense",
+        "pkief.material-icon-theme",
+        "davidanson.vscode-markdownlint",
+        "ms-vscode.live-server",
+        "xabikos.javascriptsnippets",
+        "visualstudioexptteam.vscodeintellicode",
+        "visualstudioexptteam.intellicode-api-usage-examples",
+        "kisstkondoros.vscode-gutter-preview",
+        "ecmel.vscode-html-css",
+        "usernamehw.errorlens",
+        "formulahendry.code-runner",
+        "lakshits11.best-themes-redefined",
+        "formulahendry.auto-rename-tag"
+    ]
+}
